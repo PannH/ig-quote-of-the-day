@@ -1,0 +1,32 @@
+{
+   "name": "ig-quote-of-the-day",
+   "version": "1.0.0-dev",
+   "description": "A script that publishes the quote of the day as an Instagram story using the Instagram private API and the Zen Quotes API",
+   "main": "dist/index.js",
+   "scripts": {
+      "start": "node dist/index.js",
+      "dev": "ts-node src/index.ts",
+      "build": "tsc"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/PannH/ig-quote-of-the-day.git"
+   },
+   "author": "PannH",
+   "license": "UNLICENSED",
+   "bugs": {
+      "url": "https://github.com/PannH/ig-quote-of-the-day/issues"
+   },
+   "homepage": "https://github.com/PannH/ig-quote-of-the-day#readme",
+   "devDependencies": {
+      "@types/node": "^20.8.3",
+      "ts-node": "^10.9.1",
+      "typescript": "^5.2.2"
+   },
+   "dependencies": {
+      "axios": "^1.5.1",
+      "beautify-logs": "^1.0.1",
+      "dotenv": "^16.3.1",
+      "instagram-private-api": "^1.45.3"
+   }
+}

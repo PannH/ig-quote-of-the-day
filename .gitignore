@@ -1,4 +1,9 @@
+# node
 node_modules/
 package-lock.json
 
+# env
 .env
+
+# output image
+image.jpeg

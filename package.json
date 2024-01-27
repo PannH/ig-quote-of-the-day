@@ -27,6 +27,7 @@
       "axios": "^1.5.1",
       "beautify-logs": "^1.0.1",
       "canvas": "^2.11.2",
+      "cron": "^3.1.6",
       "dotenv": "^16.3.1",
       "instagram-private-api": "^1.45.3"
    }

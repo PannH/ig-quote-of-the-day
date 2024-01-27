@@ -1,10 +1,12 @@
+import Translator from './classes/Translator';
+import buildImage from './utils/buildImage';
+import formatNumber from './utils/formatNumber';
 import dotenv from 'dotenv';
 import axios from 'axios';
-import Translator from './classes/Translator';
 import { IgApiClient } from 'instagram-private-api';
-import buildImage from './utils/buildImage';
 import { Logger } from 'beautify-logs';
 import { readFileSync } from 'fs';
+import { CronJob } from 'cron';
 
 const logger = new Logger();
 
@@ -25,7 +27,11 @@ interface Quote {
 
 const translator = new Translator(DEEPL_API_KEY);
 
-(async () => {
+logger.debug('Creating the cron job...');
+
+const job = new CronJob('0 0 0 * * *', async () => {
+
+   logger.debug('---------- Cron job execution ----------');
 
    logger.debug('Simulating pre login flow...');
    await ig.simulate.preLoginFlow();
@@ -55,4 +61,9 @@ const translator = new Translator(DEEPL_API_KEY);
 
    logger.debug('Done!');
 
-})();
+   logger.debug('----------------------------------------');
+
+}, null, true, 'Europe/Paris');
+
+const { day, month, year, hour, second, minute } = job.nextDate();
+logger.debug(`Next cron job execution: ${formatNumber(day)}/${formatNumber(month)}/${formatNumber(year)} at ${formatNumber(hour)}:${formatNumber(minute)}:${formatNumber(second)}`);

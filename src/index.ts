@@ -55,8 +55,7 @@ const job = new CronJob('0 0 0 * * *', async () => {
 
    logger.debug('Publishing the story...');
    await ig.publish.story({
-      file: imageBuffer,
-      toBesties: true
+      file: imageBuffer
    });
 
    logger.debug('Done!');

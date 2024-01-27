@@ -7,3 +7,6 @@ package-lock.json
 
 # output image
 image.jpeg
+
+# build
+dist/
